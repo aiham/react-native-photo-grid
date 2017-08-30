@@ -60,6 +60,7 @@ class PhotoGrid extends Component {
             <TouchableOpacity activeOpacity={0.7} key={index} style={{ flex: 1 }}
               onPress={() => this.props.onPressImage && this.props.onPressImage(image)}>
               <ImageLoad
+                resizeMode="cover"
                 style={[styles.image, { width: firstImageWidth, height: firstImageHeight }, this.props.imageStyle]}
                 source={typeof image === 'string' ? { uri: image } : image}
                 {...imageProps}
@@ -75,6 +76,7 @@ class PhotoGrid extends Component {
                   onPress={() => this.props.onPressImage && this.props.onPressImage(image)}>
                   {this.props.source.length > 5 && index === secondViewImages.length - 1 ? (
                     <ImageBackground
+                      resizeMode="cover"
                       style={[styles.image, { width: secondImageWidth, height: secondImageHeight }, this.props.imageStyle]}
                       source={typeof image === 'string' ? { uri: image } : image}
                     >
@@ -84,6 +86,7 @@ class PhotoGrid extends Component {
                     </ImageBackground>
                   )
                     : <ImageLoad
+                      resizeMode="cover"
                       style={[styles.image, { width: secondImageWidth, height: secondImageHeight }, this.props.imageStyle]}
                       source={typeof image === 'string' ? { uri: image } : image}
                       {...imageProps}
@@ -121,7 +124,6 @@ PhotoGrid.defaultProps = {
 const styles = {
   image: {
     flex: 1,
-    resizeMode: 'cover',
     borderWidth: 1,
     borderColor: '#fff'
   },
